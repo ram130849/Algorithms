@@ -1,0 +1,159 @@
+B505 Spring '23
+Homework 1
+Q 1) You come across an old, tattered Computer Science textbook. As you flip through the pages, you notice that many of the letters in the book have eroded. Towards the end of the book, you come across the “Homing distance”, an unfamiliar term to you, but reading through the definition, you realize that “Homing distance” is just the number of bits that are different between two integers when they are represented in their binary forms. For example, for two numbers, 2, represented as 010 in binary, and 5, represented as 101 in binary, the number of differing bits, aka the “Homing distance”, is 3.
+
+Your task is to write a function that takes in an array of integers and returns the sum of the homing distance for all pairs of integers (with repetition, i.e for two numbers a and b, distances for both (a,b) and (b,a) need to be computed) that can be formed from the array.
+
+The function should have a time complexity of O(n) and a space complexity of O(1).
+
+Constraint: All numbers of the array have a maximum of 8 bits, that is, all numbers will be smaller than 256.
+
+Example 1 –
+
+Input = [2,3,4]
+
+Binary representation of input = [010, 011, 100]
+
+Pairs that can formed, with their corresponding homing distances:
+
+(2,2) -> 0, (2,3) -> 1, (2,4) -> 2
+(3,2) -> 1, (3,3) -> 0, (3,4) -> 3
+(4,2) -> 2, (4,3) -> 3, (4,4) -> 0
+Explanation for one pair: The number of differing bits in (3,4) or (011,100) is 3.
+
+The sum of the distances is: 0 + 1 + 2 + 1 + 0 + 3 + 2 + 3 + 0 = 12
+
+Hence, output = 12
+
+Example 2 –
+
+Input = [52, 78]
+
+Binary representation of input = [0110100, 1001110]
+
+Pairs that can formed, with their corresponding homing distances:
+
+(52,52) -> 0, (52,78) -> 5
+(78, 52) -> 5 , (78,78) -> 0
+The sum of the distances is 0 + 5 + 5 + 0 = 10
+
+Hence, output = 10
+
+def get_distance(arr):
+
+#****** logic *******#
+
+
+#******************#
+
+return sum_of_pair_distances
+Q2) To reach a goal, one must move ‘k’ (k <=40) steps in a certain direction. If we can make a movement of 1 or 2 steps towards the goal in each turn, write a function to determine the number of ways in which the ‘k’ steps be covered?
+
+Example 1:
+
+Input: k = 4
+
+Output: 5
+
+Explanation:
+
+If we have to cover 4 steps, we can do it in the following ways –
+
+1 step + 1 step + 1 step + 1 step
+2 steps + 1 step + 1 step
+1 step + 2 steps + 1 step
+1 step + 2 steps + 2 steps
+2 steps + 2 steps
+Hence, answer = 5
+
+Example 2:
+
+Input: k = 5
+
+Output: 8
+
+Explanation:
+
+If we have to cover 5 steps, we can do it in the following ways –
+
+1 step + 1 step + 1 step + 1 step + 1 step
+1 step + 1 step + 1 step + 2 steps
+1 step + 1 step + 2 steps + 1 step
+1 step + 2 steps + 1 step + 1 step
+2 steps + 1 step + 1 step + 1 step
+2 steps + 2 steps + 1 step
+2 steps + 1 step + 2 steps
+1 step + 2 steps + 2 steps
+Hence, answer = 8
+
+Method:
+
+def move_steps(k):
+	**your code here**
+	return answer
+Q3) Abigail has discovered an issue with her phone where messages she receives become corrupted. The corruption occurs by duplicating every second character in the message. For instance, the message "Hello" might appear as "Heelllo" if it was corrupted.
+
+Write an algorithm that can determine if a message is corrupted using the function header below. Return the original message if it is corrupted, otherwise return the input string.
+
+Example 1:
+
+Input: “SEECRRETTMEESSSAGGE”
+
+Output: “SECRETMESSAGE”
+
+Explanation:
+
+Since every other letter in the input message is cleary duplicated, the code removes the duplicate letters and returns the result.
+
+Example 2:
+
+Input: "this is a test"
+
+Output: "this is a test"
+
+Explanation:
+
+Since there is no duplication in the input string, return the input string.
+
+Method header:
+
+def decode_message(s):
+	**your code here**
+	return message
+Q4) A substring is defined as part of a given string that is a continuous sequence of characters. For example, list of all substrings of “cat” would be “”, “c”, “a”, “t”, “ca”, “at”, “cat”. You are presented with a string containing only a’s and b’s. Your aim is to write a function count_sub_strs to return the number of substrings that have equal numbers of consecutive a’s and followed by consecutive b’s. Either the a's can be followed by b's or the b's can be followed by a's.
+
+Note: The substrings that occur multiple times are counted the number of times they occur. For example, ab can occur multiple times as different a substring then it is counted as a different instance.
+
+Example:
+
+Input: s = 'aabbaabb'
+Ouput: 6
+
+Explanation: The substrings with equal number of consecutive a's and b's are "aabb", "ab", "bbaa", "ba", "aabb", and "ab"
+Method Signature:
+
+def count_sub_strs(s: str) ->int:
+	# Count the number of substrings that have equal number of consecutive a's followed by b's or vice versa
+	return number_of_sub_strings
+Q5) Determine if string s1 can be transformed into string s2 by replacing characters. A character can be replaced with another character, but no two characters can be replaced by the same character(Eg: both 'a' and 'b' can not be replaced by 'c') and also a character can replace itself(Eg: 'a' can be replaced by 'a'). Return True if s1 can be converted to s2, otherwise return False.
+
+Example 1:
+
+Input: s1 = ‘odd’, s2 = ‘iff’
+Output: True
+Explanation: 'o' is replaced by the letter 'i'
+	     'd' is replaced by the letter 'f'
+s1 is transformed into s2 by making the above transformations, so the output is True
+Example 2:
+
+Input: s1 = ‘abb’, s2 = ‘abc’
+Output: False
+Explanation: 'a' is replaced by the letter 'a'
+	     first 'b' is replaced by the letter 'b'
+	     second 'b' can not be replaced by the letter 'c' as it will violate the first 'b' replacement
+s1 can not be transformed into s2, so the output is False
+Method:
+
+def check_transformation(s1, s2):
+	# your code here
+	return True / False
